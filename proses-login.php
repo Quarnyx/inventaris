@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = md5($_POST['password']);
 
     // Fetch user by username
-    $stmt = $conn->prepare("SELECT * FROM user WHERE username = ?");
+    $stmt = $conn->prepare("SELECT * FROM pengguna WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -17,16 +17,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($user) {
         if ($user['password'] == $password) {
             session_start();
-            $_SESSION['kode_user'] = $user['kode_user'];
-            $_SESSION['nama_user'] = $user['nama_user'];
+            $_SESSION['id_pengguna'] = $user['id_pengguna'];
+            $_SESSION['nama_pengguna'] = $user['nama_pengguna'];
+            $_SESSION['username'] = $user['username'];
             $_SESSION['level'] = $user['level'];
+            $_SESSION['logged_in'] = true;
 
             header('Location: index.php');
         } else {
-            header("location:login.php?pass=invalid");
+            header("location:login.php?pass=salah");
         }
     } else {
-        header("location:login.php?username=invalid");
+        header("location:login.php?username=salah");
     }
 
     $stmt->close();

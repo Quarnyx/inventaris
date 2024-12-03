@@ -32,47 +32,46 @@
                                 <a href="index.html">
                                     <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
                                 </a>
-                                <h5 class="text-uppercase text-center font-bold mt-4">Sign In</h5>
+                                <h5 class="text-uppercase text-center font-bold mt-4">Log In</h5>
 
                             </div>
 
-                            <form action="mt-3">
+                            <form action="proses-login.php" method="post">
 
                                 <div class="form-group mb-3">
-                                    <label for="emailaddress">Email address</label>
-                                    <input class="form-control" type="email" id="emailaddress" required=""
-                                        placeholder="Enter your email">
+                                    <label for="username">Username</label>
+                                    <input class="form-control" type="text" id="username" name="username" required=""
+                                        placeholder="Masukkan Username">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your
-                                            password?</small></a>
-
                                     <label for="password">Password</label>
-                                    <input class="form-control" type="password" required="" id="password"
-                                        placeholder="Enter your password">
+                                    <input class="form-control" type="password" required="" name="password"
+                                        id="password" placeholder="Enter your password">
                                 </div>
-
-                                <div class="form-group mb-3">
-                                    <div class="custom-control custom-checkbox checkbox-success">
-                                        <input type="checkbox" class="custom-control-input" id="checkbox-signin"
-                                            checked>
-                                        <label class="custom-control-label" for="checkbox-signin">Remember me</label>
+                                <?php if (isset($_GET['pass']) == 'salah'): ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <strong>Password Salah!</strong>
                                     </div>
-                                </div>
+                                <?php endif; ?>
+                                <?php if (isset($_GET['username']) == 'salah'): ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <strong>User Tidak Ada!</strong>
+                                    </div>
+                                <?php endif; ?>
+
 
                                 <div class="form-group mb-0 text-center">
                                     <button class="btn btn-gradient btn-block" type="submit"> Log In </button>
                                 </div>
 
                             </form>
-
-                            <div class="row mt-4">
-                                <div class="col-sm-12 text-center">
-                                    <p class="text-muted mb-0">Don't have an account? <a href="pages-register.html"
-                                            class="text-dark ml-1"><b>Sign Up</b></a></p>
-                                </div>
-                            </div>
 
 
                         </div> <!-- end card-body -->
