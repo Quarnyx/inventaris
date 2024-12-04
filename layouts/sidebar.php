@@ -33,7 +33,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="ui-typography.html">Daftar Aset</a></li>
                         <li><a href="ui-cards.html">Kelompok Aset</a></li>
-                        <li><a href="ui-buttons.html">Jenis Aset</a></li>
+                        <li><a href="?page=jenis-aset">Jenis Aset</a></li>
                     </ul>
                 </li>
 
