@@ -4,10 +4,10 @@ include '../../config.php';
 switch ($_GET['aksi']) {
     case 'tambah':
 
-        $nama_jenis = $_POST['nama_jenis'];
-        $deskripsi = $_POST['deskripsi_jenis'];
+        $nama_kelompok = $_POST['nama_kelompok'];
+        $deskripsi = $_POST['deskripsi_kelompok'];
 
-        $sql = $conn->query("INSERT INTO jenis_aset (nama_jenis, deskripsi_jenis) VALUES ('$nama_jenis', '$deskripsi')");
+        $sql = $conn->query("INSERT INTO kelompok_aset (nama_kelompok, deskripsi_kelompok) VALUES ('$nama_kelompok', '$deskripsi')");
         if ($sql) {
             echo "ok";
         } else {
@@ -17,10 +17,10 @@ switch ($_GET['aksi']) {
         break;
     case 'edit':
         $id = $_POST['id'];
-        $nama_jenis = $_POST['nama_jenis'];
-        $deskripsi = $_POST['deskripsi_jenis'];
+        $nama_kelompok = $_POST['nama_kelompok'];
+        $deskripsi = $_POST['deskripsi_kelompok'];
 
-        $sql = $conn->query("UPDATE jenis_aset SET nama_jenis = '$nama_jenis', deskripsi_jenis = '$deskripsi' WHERE id_jenis = '$id'");
+        $sql = $conn->query("UPDATE kelompok_aset SET nama_kelompok = '$nama_kelompok', deskripsi_kelompok = '$deskripsi' WHERE id_kelompok = '$id'");
         if ($sql) {
             echo "ok";
         } else {
@@ -30,7 +30,7 @@ switch ($_GET['aksi']) {
         break;
     case 'hapus':
         $id = $_POST['id'];
-        $sql = $conn->query("DELETE FROM jenis_aset WHERE id_jenis = '$id'");
+        $sql = $conn->query("DELETE FROM kelompok_aset WHERE id_kelompok = '$id'");
         if ($sql) {
             echo "ok";
         } else {
