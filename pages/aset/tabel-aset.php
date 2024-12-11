@@ -1,15 +1,19 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <h4 class="header-title"><b>Tabel Data Kelompok</b></h4>
+            <h4 class="header-title"><b>Tabel Data Aset</b></h4>
 
             <table id="datatable" class="table table-bordered  dt-responsive nowrap"
                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Kelompok</th>
-                        <th>Deskripsi</th>
+                        <th>Nama Aset</th>
+                        <th>Harga Pembelian</th>
+                        <th>Tanggal Pembelian</th>
+                        <th>Umur Ekonomis</th>
+                        <th>Nilai Residu</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -19,7 +23,7 @@
                     <?php
                     include '../../config.php';
                     $no = 1;
-                    $sql = $conn->query("SELECT * FROM kelompok_aset");
+                    $sql = $conn->query("SELECT * FROM aset");
                     while ($data = $sql->fetch_assoc()) {
                         ?>
                         <tr>
@@ -27,17 +31,29 @@
                                 <?php echo $no++; ?>
                             </td>
                             <td>
-                                <?php echo $data['nama_kelompok']; ?>
+                                <?php echo $data['nama_aset']; ?>
                             </td>
                             <td>
-                                <?php echo $data['deskripsi_kelompok']; ?>
+                                <?php echo 'Rp. ' . number_format($data['harga_pembelian'], 0, ',', '.'); ?>
                             </td>
                             <td>
-                                <button data-id="<?php echo $data['id_kelompok']; ?>" id="edit"
-                                    data-nama="<?php echo $data['nama_kelompok']; ?>" class="btn btn-warning btn-sm"><i
+                                <?php echo $data['tanggal_pembelian']; ?>
+                            </td>
+                            <td>
+                                <?php echo $data['umur_ekonomis']; ?>
+                            </td>
+                            <td>
+                                <?php echo 'Rp. ' . number_format($data['nilai_residu'], 0, ',', '.'); ?>
+                            </td>
+                            <td>
+                                <?php echo $data['status']; ?>
+                            </td>
+                            <td>
+                                <button data-id="<?php echo $data['id_aset']; ?>" id="edit"
+                                    data-nama="<?php echo $data['nama_aset']; ?>" class="btn btn-warning btn-sm"><i
                                         class="fe-edit"></i></button>
-                                <button data-id="<?php echo $data['id_kelompok']; ?>" id="delete"
-                                    data-nama="<?php echo $data['nama_kelompok']; ?>" class="btn btn-danger btn-sm"><i
+                                <button data-id="<?php echo $data['id_aset']; ?>" id="delete"
+                                    data-nama="<?php echo $data['nama_aset']; ?>" class="btn btn-danger btn-sm"><i
                                         class="fe-trash"></i></button>
                             </td>
                         </tr>
@@ -55,7 +71,7 @@
             const nama = $(this).data('nama');
             $.ajax({
                 type: 'POST',
-                url: 'pages/kelompok-aset/edit-kelompok-aset.php',
+                url: 'pages/aset/edit-aset.php',
                 data: 'id=' + id + '&nama=' + nama,
                 success: function (data) {
                     $('#myModal').modal('show');
@@ -70,15 +86,15 @@
             alertify.confirm('Hapus', 'Apakah anda yakin ingin menghapus data ' + nama + '?', function () {
                 $.ajax({
                     type: 'POST',
-                    url: 'pages/kelompok-aset/proses-kelompok-aset.php?aksi=hapus',
+                    url: 'pages/aset/proses-aset.php?aksi=hapus',
                     data: 'id=' + id,
                     success: function (data) {
                         if (data == "ok") {
                             loadTable();
-                            alertify.success('Jenis Kelompok Berhasil Dihapus');
+                            alertify.success('Jenis Aset Berhasil Dihapus');
 
                         } else {
-                            alertify.error('Jenis Kelompok Gagal Dihapus');
+                            alertify.error('Jenis Aset Gagal Dihapus');
 
                         }
                     },
