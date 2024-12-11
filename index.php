@@ -79,6 +79,7 @@ include "layouts/head.php";
     <script src="assets/libs/pdfmake/vfs_fonts.js"></script>
     <script src="assets/libs/datatables/buttons.html5.min.js"></script>
     <script src="assets/libs/datatables/buttons.print.min.js"></script>
+    <script src="assets/libs/bootstrap-filestyle2/bootstrap-filestyle.min.js"></script>
 
     <!-- Responsive examples -->
     <script src="assets/libs/datatables/dataTables.responsive.min.js"></script>

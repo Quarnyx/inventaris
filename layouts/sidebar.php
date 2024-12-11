@@ -32,7 +32,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="?page=aset">Daftar Aset</a></li>
-                        <li><a href="?page=aset">Validasi Aset</a></li>
+                        <li><a href="?page=validasi&act=belum">Validasi Aset</a></li>
                         <li><a href="?page=kelompok-aset">Kelompok Aset</a></li>
                         <li><a href="?page=jenis-aset">Jenis Aset</a></li>
                     </ul>

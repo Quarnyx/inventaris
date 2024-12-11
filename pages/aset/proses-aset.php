@@ -47,7 +47,7 @@ switch ($_GET['aksi']) {
         break;
     case 'hapus':
         $id = $_POST['id'];
-        $sql = $conn->query("DELETE FROM kelompok_aset WHERE id_kelompok = '$id'");
+        $sql = $conn->query("DELETE FROM aset WHERE id_aset = '$id'");
         if ($sql) {
             echo "ok";
         } else {
