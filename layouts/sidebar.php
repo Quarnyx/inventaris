@@ -53,7 +53,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="charts-flot.html">Validasi Penyusutan</a></li>
-                        <li><a href="charts-morris.html">Daftar Penyusutan</a></li>
+                        <li><a href="?page=daftar-penyusutan">Daftar Penyusutan</a></li>
                     </ul>
                 </li>
             </ul>
