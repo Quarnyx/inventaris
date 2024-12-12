@@ -52,7 +52,7 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="charts-flot.html">Validasi Penyusutan</a></li>
+                        <li><a href="?page=validasi-penyusutan">Validasi Penyusutan</a></li>
                         <li><a href="?page=daftar-penyusutan">Daftar Penyusutan</a></li>
                     </ul>
                 </li>

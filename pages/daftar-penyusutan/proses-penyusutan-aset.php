@@ -8,8 +8,13 @@ switch ($_GET['aksi']) {
         $tanggal_penyusutan = $_POST['tanggal_penyusutan'];
         $nilai_penyusutan = $_POST['nilai_penyusutan'];
         $validasi = "Belum Validasi";
+        $umur_ekonomis = $_POST['umur_ekonomis'];
+        // hitung sisa umur
+        $sqlCount = $conn->query("SELECT COUNT(*) as total_umur_ekonomis FROM jadwal_penyusutan WHERE id_aset = " . $id_aset);
+        $row = $sqlCount->fetch_assoc();
+        $sisaUmur = $umur_ekonomis - ($row['total_umur_ekonomis'] + 1);
 
-        $sql = $conn->query("INSERT INTO jadwal_penyusutan (id_aset, tanggal_penyusutan, nilai_penyusutan, validasi) VALUES ('$id_aset', '$tanggal_penyusutan', '$nilai_penyusutan', '$validasi')");
+        $sql = $conn->query("INSERT INTO jadwal_penyusutan (id_aset, tanggal_penyusutan, nilai_penyusutan, validasi, sisa_umur) VALUES ('$id_aset', '$tanggal_penyusutan', '$nilai_penyusutan', '$validasi', '$sisaUmur')");
         if ($sql) {
             echo "ok";
         } else {

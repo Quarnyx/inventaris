@@ -25,6 +25,9 @@ switch ($_GET['page'] ?? '') {
     case 'daftar-penyusutan':
         include "pages/daftar-penyusutan/index.php";
         break;
+    case 'validasi-penyusutan':
+        include "pages/validasi-penyusutan/index.php";
+        break;
     default:
         include "pages/404.php";
         break;
