@@ -40,7 +40,7 @@
                                 <?php echo $data['nama_aset']; ?>
                             </td>
                             <td>
-                                <?php echo $data['umur_ekonomis']; ?> Bulan
+                                <?php echo $data['umur_ekonomis']; ?> Tahun
                             </td>
                             <td>
                                 <?php echo 'Rp. ' . number_format($data['nilai_penyusutan'], 0, ',', '.'); ?>

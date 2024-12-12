@@ -13,7 +13,7 @@
                             include '../../config.php';
                             $sql = $conn->query("SELECT * FROM aset");
                             while ($data = $sql->fetch_assoc()) {
-                                echo '<option value="' . $data['id_aset'] . '" data-nama="' . $data['nama_aset'] . '" data-residu="' . $data['nilai_residu'] . '" data-umur="' . $data['umur_ekonomis'] . '">' . $data['nama_aset'] . '</option>';
+                                echo '<option value="' . $data['id_aset'] . '" data-nama="' . $data['nama_aset'] . '" data-residu="' . $data['nilai_penyusutan'] . '" data-umur="' . $data['umur_ekonomis'] . '">' . $data['nama_aset'] . '</option>';
                             }
                             ?>
                         </select>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="umur_ekonomis" class="col-form-label">Umur Ekonomis (Bulan)</label>
+                        <label for="umur_ekonomis" class="col-form-label">Umur Ekonomis (Tahun)</label>
                         <input type="text" class="form-control" id="umur_ekonomis" name="umur_ekonomis" readonly>
                     </div>
                     <div class="form-group col-md-6">
@@ -44,7 +44,7 @@
         $('#id_aset').on('change', function () {
             var data = $(this).find(':selected').data();
             $('#umur_ekonomis').val(data.umur);
-            $('#nilai_penyusutan').val(data.residu);
+            $('#nilai_penyusutan').val('Rp. ' + data.residu.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + ',-');
 
         })
         $('#form-tambah').submit(function (e) {

@@ -14,24 +14,25 @@ if ($result->num_rows > 0) {
             <form id="form-tambah">
                 <input type="hidden" name="id" value="<?php echo $row['id_aset']; ?>">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="nama_aset" class="col-form-label">Nama Aset</label>
                         <input type="text" class="form-control" id="nama_aset" placeholder="Nama Aset" name="nama_aset"
                             value="<?php echo $row['nama_aset']; ?>" disabled>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="harga_pembelian" class="col-form-label">Harga Pembelian</label>
                         <input type="text" class="form-control" id="harga_pembelian" placeholder="Harga Pembelian"
                             name="harga_pembelian"
                             value="Rp. <?php echo number_format($row['harga_pembelian'], 0, ',', '.'); ?>" disabled>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="tanggal_pembelian" class="col-form-label">Tanggal Pembelian</label>
                         <input type="date" class="form-control" id="tanggal_pembelian" placeholder="Tanggal Pembelian"
                             name="tanggal_pembelian" value="<?php echo $row['tanggal_pembelian']; ?>" disabled>
                     </div>
+                </div>
+                <div class="form-row">
+
                     <div class="form-group col-md-4">
                         <label for="umur_ekonomis" class="col-form-label">Umur Ekonomis (Bulan)</label>
                         <input type="text" class="form-control" id="umur_ekonomis" placeholder="Umur Ekonomis"
@@ -42,6 +43,13 @@ if ($result->num_rows > 0) {
                         <input type="text" class="form-control" id="nilai_residu" placeholder="Nilai Residu"
                             name="nilai_residu"
                             value="<?php echo 'Rp. ' . number_format($row['nilai_residu'], 0, ',', '.'); ?>" disabled>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="nilai_penyusutan" class="col-form-label">Nilai Penyusutan (Bulan)</label>
+                        <input type="text" class="form-control" id="nilai_penyusutan" placeholder="Nilai Penyusutan"
+                            name="nilai_penyusutan"
+                            value="<?php echo 'Rp. ' . number_format($row['nilai_penyusutan'], 0, ',', '.'); ?>"
+                            readonly>
                     </div>
                 </div>
                 <div class="form-row">

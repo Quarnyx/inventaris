@@ -42,7 +42,8 @@
                                 <?php echo $data['nama_aset']; ?>
                             </td>
                             <td>
-                                <?php echo $data['umur_ekonomis']; ?> Bulan
+                                <?php echo $data['umur_ekonomis']; ?> Tahun / <?php echo $data['umur_ekonomis'] * 12; ?>
+                                Bulan
                             </td>
                             <td>
                                 <?php
@@ -56,8 +57,9 @@
                             </td>
                             <td>
                                 <?php
-                                $total_sisa_umur = $data['umur_ekonomis'] - $sisa_umur;
-                                // echo 'sisa umur = ' . $data['umur_ekonomis'] . ' - ' . $sisa_umur . ' = ' . $total_sisa_umur;
+                                $umur_ekonomis = $data['umur_ekonomis'] * 12;
+                                $total_sisa_umur = $umur_ekonomis - $sisa_umur;
+                                // echo 'sisa umur = ' . $umur_ekonomis . ' - ' . $sisa_umur . ' = ' . $total_sisa_umur;
                                 $nilai_penyusutan = $data['nilai_penyusutan'] * $total_sisa_umur;
                                 // echo '<br>nilai penyusutan = ' . $data['nilai_penyusutan'] . ' * ' . $total_sisa_umur . ' = ' . $nilai_penyusutan;
                                 $sisa_nilai = $data['harga_pembelian'] - $nilai_penyusutan;

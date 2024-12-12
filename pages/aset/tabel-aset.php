@@ -40,7 +40,7 @@
                                 <?php echo $data['tanggal_pembelian']; ?>
                             </td>
                             <td>
-                                <?php echo $data['umur_ekonomis']; ?>
+                                <?php echo $data['umur_ekonomis']; ?> Tahun
                             </td>
                             <td>
                                 <?php echo 'Rp. ' . number_format($data['nilai_residu'], 0, ',', '.'); ?>
