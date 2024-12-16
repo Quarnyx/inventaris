@@ -29,9 +29,7 @@
                         <div class="card-body p-4">
 
                             <div class="text-center w-75 m-auto">
-                                <a href="index.html">
-                                    <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
-                                </a>
+                                <h4 class="text-uppercase font-bold mb-4">Pengelolaan Aset Tetap Lapas Kendal</h4>
                                 <h5 class="text-uppercase text-center font-bold mt-4">Log In</h5>
 
                             </div>

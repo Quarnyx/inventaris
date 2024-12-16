@@ -14,12 +14,6 @@
                     <h6 class="text-overflow m-0">Selamat Datang !</h6>
                 </div>
 
-                <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                    <i class="fe-user"></i>
-                    <span>Ganti Password</span>
-                </a>
-
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
@@ -31,21 +25,15 @@
             </div>
         </li>
 
-        <li class="dropdown notification-list">
-            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                <i class="fe-settings noti-icon"></i>
-            </a>
-        </li>
 
 
     </ul>
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center">
+        <a href="index.php" class="logo text-center">
             <span class="logo-lg">
-                <img src="assets/images/logo-light.png" alt="" height="16">
-                <!-- <span class="logo-lg-text-light">UBold</span> -->
+                <span class="logo-lg-text-light">Sistem Aset Lapas</span>
             </span>
             <span class="logo-sm">
                 <!-- <span class="logo-sm-text-dark">U</span> -->

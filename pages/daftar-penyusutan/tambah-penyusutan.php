@@ -8,10 +8,10 @@
                     <div class="form-group col-md-6">
                         <label for="id_aset" class="col-form-label">Aset</label>
                         <select class="form-control" id="id_aset" name="id_aset">
-                            <option value="">Pilih Kelompok Aset</option>
+                            <option value="">Pilih Aset</option>
                             <?php
                             include '../../config.php';
-                            $sql = $conn->query("SELECT * FROM aset");
+                            $sql = $conn->query("SELECT * FROM aset WHERE status = 'Sudah Validasi Tambah Aset'");
                             while ($data = $sql->fetch_assoc()) {
                                 echo '<option value="' . $data['id_aset'] . '" data-nama="' . $data['nama_aset'] . '" data-residu="' . $data['nilai_penyusutan'] . '" data-umur="' . $data['umur_ekonomis'] . '">' . $data['nama_aset'] . '</option>';
                             }
