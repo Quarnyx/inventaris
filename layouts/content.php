@@ -28,6 +28,9 @@ switch ($_GET['page'] ?? '') {
     case 'validasi-penyusutan':
         include "pages/validasi-penyusutan/index.php";
         break;
+    case 'laporan':
+        include "pages/laporan/index.php";
+        break;
     default:
         include "pages/404.php";
         break;

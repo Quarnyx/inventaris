@@ -39,8 +39,8 @@
                 </li>
 
                 <li>
-                    <a href="calendar.html">
-                        <i class="fe-user"></i>
+                    <a href="?page=laporan">
+                        <i class="fe-file"></i>
                         <span> Laporan Aset </span>
                     </a>
                 </li>
