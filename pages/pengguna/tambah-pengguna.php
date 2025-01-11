@@ -26,7 +26,7 @@
                         <label for="level" class="col-form-label">Level</label>
                         <select id="level" name="level" class="form-control">
                             <option value="Admin">Admin</option>
-                            <option value="Pengurus">Pengurus Aset</option>
+                            <option value="Pengelola Aset">Pengelola Aset</option>
                         </select>
                     </div>
                 </div>
