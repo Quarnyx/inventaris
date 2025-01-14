@@ -1,2 +1,3 @@
 template/
-pages/validasi/upload/
+/pages/validasi/upload/*
+!/pages/validasi/upload/.gitkeep
