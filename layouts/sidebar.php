@@ -8,7 +8,7 @@
             <ul class="metismenu" id="side-menu">
                 <li class="menu-title">Navigasi</li>
                 <?php
-                if ($_SESSION['level'] == 'admin' or $_SESSION['level'] == 'Pengelola Aset') {
+                if ($_SESSION['level'] == 'admin' or $_SESSION['level'] == 'Kepala Lapas' or $_SESSION['level'] == 'Kasubag TU') {
                     ?>
                     <li>
                         <a href="?page=dashboard">

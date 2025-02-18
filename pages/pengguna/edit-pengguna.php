@@ -31,8 +31,10 @@ if ($result->num_rows > 0) {
                         <select id="level" name="level" class="form-control">
                             <option value="Admin" <?php if ($row['level'] == 'Admin')
                                 echo 'selected'; ?>>Admin</option>
-                            <option value="Pengelola Aset" <?php if ($row['level'] == 'Pengelola Aset')
-                                echo 'selected'; ?>>Pengelola Aset
+                            <option value="Kepala Lapas" <?php if ($row['level'] == 'Kepala Lapas')
+                                echo 'selected'; ?>>Kepala Lapas
+                            <option value="Kasubag TU" <?php if ($row['level'] == 'Kasubag TU')
+                                echo 'selected'; ?>>Kasubag TU
                             </option>
                         </select>
                     </div>
