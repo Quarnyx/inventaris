@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="jenis_aset" class="col-form-label">Jenis Aset</label>
                         <select class="form-control" id="jenis_aset" name="id_jenis">
                             <option value="">Pilih Jenis Aset</option>
@@ -78,7 +78,7 @@ if ($result->num_rows > 0) {
                             ?>
                         </select>
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="kelompok_aset" class="col-form-label">Kelompok Aset</label>
                         <select class="form-control" id="kelompok_aset" name="id_kelompok">
                             <option value="">Pilih Kelompok Aset</option>
@@ -90,6 +90,11 @@ if ($result->num_rows > 0) {
                             }
                             ?>
                         </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="letak-aset" class="col-form-label">Letak Aset</label>
+                        <input type="text" class="form-control" id="letak-aset" placeholder="Letak Aset"
+                            name="letak_aset" value="<?php echo $row['letak_aset']; ?>">
                     </div>
                 </div>
                 <div class="form-row">

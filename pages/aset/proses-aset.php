@@ -16,10 +16,11 @@ switch ($_GET['aksi']) {
         $status = "Belum Validasi BAST";
         $nilai_penyusutan = preg_replace('/[^0-9]/', '', $_POST['nilai_penyusutan']);
         $nilai_penyusutan = substr($nilai_penyusutan, 0, -2);
+        $letak_aset = $_POST['letak_aset'];
 
 
-        $sql = $conn->query("INSERT INTO aset (nama_aset, harga_pembelian, tanggal_pembelian, umur_ekonomis, nilai_residu, id_kelompok, id_jenis, deskripsi_aset, jumlah, unit, status, nilai_penyusutan) 
-        VALUES ('$nama_aset', '$harga_pembelian', '$tanggal_pembelian', '$umur_ekonomis', '$nilai_residu', '$id_kelompok', '$id_jenis', '$deskripsi_aset', '$jumlah', '$satuan', '$status', '$nilai_penyusutan')");
+        $sql = $conn->query("INSERT INTO aset (nama_aset, harga_pembelian, tanggal_pembelian, umur_ekonomis, nilai_residu, id_kelompok, id_jenis, deskripsi_aset, jumlah, unit, status, nilai_penyusutan, letak_aset) 
+        VALUES ('$nama_aset', '$harga_pembelian', '$tanggal_pembelian', '$umur_ekonomis', '$nilai_residu', '$id_kelompok', '$id_jenis', '$deskripsi_aset', '$jumlah', '$satuan', '$status', '$nilai_penyusutan', '$letak_aset')");
         if ($sql) {
             echo "ok";
         } else {
@@ -41,8 +42,9 @@ switch ($_GET['aksi']) {
         $satuan = $_POST['satuan'];
         $nilai_penyusutan = preg_replace('/[^0-9]/', '', $_POST['nilai_penyusutan']);
         $nilai_penyusutan = substr($nilai_penyusutan, 0, -2);
+        $letak_aset = $_POST['letak_aset'];
 
-        $sql = $conn->query("UPDATE aset SET nama_aset = '$nama_aset', harga_pembelian = '$harga_pembelian', tanggal_pembelian = '$tanggal_pembelian', umur_ekonomis = '$umur_ekonomis', nilai_residu = '$nilai_residu', id_kelompok = '$id_kelompok', id_jenis = '$id_jenis', deskripsi_aset = '$deskripsi_aset', jumlah = '$jumlah', unit = '$satuan', nilai_penyusutan = '$nilai_penyusutan' WHERE id_aset = '$id'");
+        $sql = $conn->query("UPDATE aset SET nama_aset = '$nama_aset', harga_pembelian = '$harga_pembelian', tanggal_pembelian = '$tanggal_pembelian', umur_ekonomis = '$umur_ekonomis', nilai_residu = '$nilai_residu', id_kelompok = '$id_kelompok', id_jenis = '$id_jenis', deskripsi_aset = '$deskripsi_aset', jumlah = '$jumlah', unit = '$satuan', nilai_penyusutan = '$nilai_penyusutan', letak_aset = '$letak_aset' WHERE id_aset = '$id'");
         if ($sql) {
             echo "ok";
         } else {
