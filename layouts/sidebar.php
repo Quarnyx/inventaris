@@ -49,14 +49,21 @@
                         ?>
                         <li><a href="?page=kelompok-aset">Kelompok Aset</a></li>
                         <li><a href="?page=jenis-aset">Jenis Aset</a></li>
+                        <li><a href="?page=letak-aset">Letak Aset</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="?page=laporan">
+                    <a href="javascript: void(0);">
                         <i class="fe-file"></i>
                         <span> Laporan Aset </span>
+                        <span class="menu-arrow"></span>
                     </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li><a href="?page=laporan">Laporan Aset</a></li>
+                        <li><a href="?page=penyusutan-per-aset">Penyusutan per Aset</a></li>
+                        <li><a href="?page=penyusutan-per-tahun">Penyusutan per Tahun</a></li>
+                    </ul>
                 </li>
 
                 <li>

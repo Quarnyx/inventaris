@@ -31,6 +31,15 @@ switch ($_GET['page'] ?? '') {
     case 'laporan':
         include "pages/laporan/index.php";
         break;
+    case 'penyusutan-per-aset':
+        include "pages/laporan/penyusutan-per-aset.php";
+        break;
+    case 'penyusutan-per-tahun':
+        include "pages/laporan/penyusutan-per-tahun.php";
+        break;
+    case 'letak-aset':
+        include "pages/letak-aset/index.php";
+        break;
     default:
         include "pages/404.php";
         break;
