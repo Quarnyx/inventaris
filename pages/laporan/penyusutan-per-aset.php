@@ -60,13 +60,8 @@
                         <div class="ms-3">
                             <h1>Laporan Penyusutan Aset</h1>
                             <h1><b>LAPAS KENDAL</b></h1>
+                            <h1>Periode per Bulan</h1>
                         </div>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm-12 text-center">
-                        <h6>
-                        </h6>
                     </div>
                 </div>
                 <hr style="border-width: 2px; border-color: black; border-style: solid;">
