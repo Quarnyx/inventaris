@@ -17,10 +17,19 @@ switch ($_GET['aksi']) {
         $nilai_penyusutan = preg_replace('/[^0-9]/', '', $_POST['nilai_penyusutan']);
         $nilai_penyusutan = substr($nilai_penyusutan, 0, -2);
         $letak_aset = $_POST['letak_aset'];
+        $status_kondisi = $_POST['status_kondisi'];
+        $kode_aset = $_POST['kode_aset'];
+        $sumber_dana = $_POST['sumber_dana'];
+        $merek = $_POST['merek'];
+        $klasifikasi_pengadaan = $_POST['klasifikasi_pengadaan'];
 
 
-        $sql = $conn->query("INSERT INTO aset (nama_aset, harga_pembelian, tanggal_pembelian, umur_ekonomis, nilai_residu, id_kelompok, id_jenis, deskripsi_aset, jumlah, unit, status, nilai_penyusutan, letak_aset) 
-        VALUES ('$nama_aset', '$harga_pembelian', '$tanggal_pembelian', '$umur_ekonomis', '$nilai_residu', '$id_kelompok', '$id_jenis', '$deskripsi_aset', '$jumlah', '$satuan', '$status', '$nilai_penyusutan', '$letak_aset')");
+        $sql = $conn->query("INSERT INTO aset (nama_aset, harga_pembelian, tanggal_pembelian, umur_ekonomis, nilai_residu, id_kelompok, id_jenis, deskripsi_aset, jumlah, unit, status, nilai_penyusutan, status_kondisi, kode_aset, sumber_dana, merek, klasifikasi_pengadaan) 
+        VALUES ('$nama_aset', '$harga_pembelian', '$tanggal_pembelian', '$umur_ekonomis', '$nilai_residu', '$id_kelompok', '$id_jenis', '$deskripsi_aset', '$jumlah', '$satuan', '$status', '$nilai_penyusutan', '$status_kondisi', '$kode_aset', '$sumber_dana', '$merek', '$klasifikasi_pengadaan')");
+
+        // simpan ke tabel letak_aset
+        $sql = $conn->query("INSERT INTO letak_aset (id_aset, letak_aset) VALUES (LAST_INSERT_ID(), '$letak_aset')");
+
         if ($sql) {
             echo "ok";
         } else {
@@ -42,9 +51,28 @@ switch ($_GET['aksi']) {
         $satuan = $_POST['satuan'];
         $nilai_penyusutan = preg_replace('/[^0-9]/', '', $_POST['nilai_penyusutan']);
         $nilai_penyusutan = substr($nilai_penyusutan, 0, -2);
-        $letak_aset = $_POST['letak_aset'];
+        $sumber_dana = $_POST['sumber_dana'];
+        $merek = $_POST['merek'];
+        $status_kondisi = $_POST['status_kondisi'];
+        $klasifikasi_pengadaan = $_POST['klasifikasi_pengadaan'];
 
-        $sql = $conn->query("UPDATE aset SET nama_aset = '$nama_aset', harga_pembelian = '$harga_pembelian', tanggal_pembelian = '$tanggal_pembelian', umur_ekonomis = '$umur_ekonomis', nilai_residu = '$nilai_residu', id_kelompok = '$id_kelompok', id_jenis = '$id_jenis', deskripsi_aset = '$deskripsi_aset', jumlah = '$jumlah', unit = '$satuan', nilai_penyusutan = '$nilai_penyusutan', letak_aset = '$letak_aset' WHERE id_aset = '$id'");
+        $sql = $conn->query("UPDATE aset SET 
+        nama_aset = '$nama_aset', 
+        harga_pembelian = '$harga_pembelian', 
+        tanggal_pembelian = '$tanggal_pembelian', 
+        umur_ekonomis = '$umur_ekonomis', 
+        nilai_residu = '$nilai_residu', 
+        id_kelompok = '$id_kelompok', 
+        id_jenis = '$id_jenis', 
+        deskripsi_aset = '$deskripsi_aset', 
+        jumlah = '$jumlah', 
+        unit = '$satuan', 
+        nilai_penyusutan = '$nilai_penyusutan', 
+        sumber_dana = '$sumber_dana', 
+        merek = '$merek', 
+        status_kondisi = '$status_kondisi', 
+        klasifikasi_pengadaan = '$klasifikasi_pengadaan' 
+        WHERE id_aset = '$id'");
         if ($sql) {
             echo "ok";
         } else {

@@ -11,12 +11,12 @@
                         <input type="text" class="form-control" id="nama_aset" placeholder="Nama Aset" name="nama_aset">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="harga_pembelian" class="col-form-label">Harga Pembelian</label>
+                        <label for="harga_pembelian" class="col-form-label">Harga Perolehan</label>
                         <input type="text" class="form-control" id="harga_pembelian" placeholder="Harga Pembelian"
                             name="harga_pembelian">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="tanggal_pembelian" class="col-form-label">Tanggal Pembelian</label>
+                        <label for="tanggal_pembelian" class="col-form-label">Tanggal Perolehan</label>
                         <input type="date" class="form-control" id="tanggal_pembelian" placeholder="Tanggal Pembelian"
                             name="tanggal_pembelian">
                     </div>
@@ -40,13 +40,27 @@
 
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="jumlah" class="col-form-label">Jumlah</label>
                         <input type="text" class="form-control" id="jumlah" placeholder="Jumlah" name="jumlah">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="satuan" class="col-form-label">Satuan</label>
                         <input type="text" class="form-control" id="satuan" placeholder="Satuan" name="satuan">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="sumber_dana" class="col-form-label">Sumber Dana</label>
+                        <select name="sumber_dana" class="form-control">
+                            <?php
+                            require_once '../../config.php';
+                            $query = mysqli_query($conn, "SHOW COLUMNS FROM aset LIKE 'sumber_dana'");
+                            $enum = explode("','", substr(mysqli_fetch_array($query)['Type'], 6, -2));
+                            foreach ($enum as $key => $value) {
+                                echo "<option value='$value'>$value</option>";
+                            }
+
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-row">
@@ -81,6 +95,46 @@
                         <input type="text" class="form-control" id="letak-aset" placeholder="Letak Aset"
                             name="letak_aset">
                     </div>
+                </div>
+                <div class="form-row">
+                    <?php
+                    require_once '../../config.php';
+                    // generate kode aset
+                    $query = mysqli_query($conn, "SELECT MAX(kode_aset) AS kode_aset FROM aset");
+                    $data = mysqli_fetch_array($query);
+                    $max = $data['kode_aset'] ? substr($data['kode_aset'], 3, 3) : "000";
+                    $no = $max + 1;
+                    $char = "AS-";
+                    $kode_aset = $char . sprintf("%03s", $no);
+                    ?>
+                    <div class="form-group col-md-4">
+                        <label for="kode_aset" class="col-form-label">Kode Aset</label>
+                        <input type="text" class="form-control" id="kode_aset" placeholder="Kode Aset" name="kode_aset"
+                            readonly value="<?php echo $kode_aset; ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="status_kondisi" class="col-form-label">Status Kondisi</label>
+                        <input type="text" class="form-control" id="status_kondisi" placeholder="Status Kondisi"
+                            name="status_kondisi">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="merek" class="col-form-label">Merek</label>
+                        <input type="text" class="form-control" id="merek" placeholder="Merek" name="merek">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label for="klasifikasi_pengadaan" class="col-form-label">Klasifikasi Pengadaan</label>
+                    <select name="klasifikasi_pengadaan" class="form-control">
+                        <?php
+                        require_once '../../config.php';
+                        $query = mysqli_query($conn, "SHOW COLUMNS FROM aset LIKE 'klasifikasi_pengadaan'");
+                        $enum = explode("','", substr(mysqli_fetch_array($query)['Type'], 6, -2));
+                        foreach ($enum as $key => $value) {
+                            echo "<option value='$value'>$value</option>";
+                        }
+
+                        ?>
+                    </select>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">

@@ -20,15 +20,15 @@ if ($result->num_rows > 0) {
                             value="<?php echo $row['nama_aset']; ?>">
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="harga_pembelian" class="col-form-label">Harga Pembelian</label>
-                        <input type="text" class="form-control" id="harga_pembelian" placeholder="Harga Pembelian"
+                        <label for="harga_pembelian" class="col-form-label">Harga Perolehan</label>
+                        <input type="text" class="form-control" id="harga_pembelian" placeholder="Harga Perolehan"
                             name="harga_pembelian"
                             value="Rp. <?php echo number_format($row['harga_pembelian'], 0, ',', '.'); ?>">
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="tanggal_pembelian" class="col-form-label">Tanggal Pembelian</label>
-                        <input type="date" class="form-control" id="tanggal_pembelian" placeholder="Tanggal Pembelian"
+                        <label for="tanggal_pembelian" class="col-form-label">Tanggal Perolehan</label>
+                        <input type="date" class="form-control" id="tanggal_pembelian" placeholder="Tanggal Perolehan"
                             name="tanggal_pembelian" value="<?php echo $row['tanggal_pembelian']; ?>">
                     </div>
                 </div>
@@ -53,19 +53,33 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="jumlah" class="col-form-label">Jumlah</label>
                         <input type="text" class="form-control" id="jumlah" placeholder="Jumlah" name="jumlah"
                             value="<?php echo $row['jumlah']; ?>">
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
                         <label for="satuan" class="col-form-label">Satuan</label>
                         <input type="text" class="form-control" id="satuan" placeholder="Satuan" name="satuan"
                             value="<?php echo $row['unit']; ?>">
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="sumber_dana" class="col-form-label">Sumber Dana</label>
+                        <select name="sumber_dana" class="form-control">
+                            <?php
+                            require_once '../../config.php';
+                            $query = mysqli_query($conn, "SHOW COLUMNS FROM aset LIKE 'sumber_dana'");
+                            $enum = explode("','", substr(mysqli_fetch_array($query)['Type'], 6, -2));
+                            foreach ($enum as $key => $value) {
+                                echo '<option value="' . $value . '"' . ($row['sumber_dana'] == $value ? 'selected' : '') . '>' . $value . '</option>';
+                            }
+
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="jenis_aset" class="col-form-label">Jenis Aset</label>
                         <select class="form-control" id="jenis_aset" name="id_jenis">
                             <option value="">Pilih Jenis Aset</option>
@@ -78,7 +92,7 @@ if ($result->num_rows > 0) {
                             ?>
                         </select>
                     </div>
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label for="kelompok_aset" class="col-form-label">Kelompok Aset</label>
                         <select class="form-control" id="kelompok_aset" name="id_kelompok">
                             <option value="">Pilih Kelompok Aset</option>
@@ -91,11 +105,31 @@ if ($result->num_rows > 0) {
                             ?>
                         </select>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="letak-aset" class="col-form-label">Letak Aset</label>
-                        <input type="text" class="form-control" id="letak-aset" placeholder="Letak Aset"
-                            name="letak_aset" value="<?php echo $row['letak_aset']; ?>">
+                        <label for="merek" class="col-form-label">Merek</label>
+                        <input type="text" class="form-control" id="merek" placeholder="Merek" name="merek"
+                            value="<?php echo $row['merek']; ?>">
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="status_kondisi" class="col-form-label">Status Kondisi</label>
+                        <input type="text" class="form-control" id="status_kondisi" placeholder="Status Kondisi"
+                            name="status_kondisi" value="<?php echo $row['status_kondisi']; ?>">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="klasifikasi_pengadaan" class="col-form-label">Klasifikasi Pengadaan</label>
+                        <select name="klasifikasi_pengadaan" class="form-control">
+                            <?php
+                            require_once '../../config.php';
+                            $query = mysqli_query($conn, "SHOW COLUMNS FROM aset LIKE 'klasifikasi_pengadaan'");
+                            $enum = explode("','", substr(mysqli_fetch_array($query)['Type'], 6, -2));
+                            foreach ($enum as $key => $value) {
+                                echo '<option value="' . $value . '"' . ($row['klasifikasi_pengadaan'] == $value ? 'selected' : '') . '>' . $value . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>                    
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
