@@ -36,10 +36,23 @@ if ($result->num_rows > 0) {
                             ?>
                         </select>
                     </div>
+                    <!-- cari dari lokasi dari tabel letak_aset -->
                     <div class="form-group col-md-6">
-                        <label for="letak-aset" class="col-form-label">Letak Aset</label>
-                        <input type="text" class="form-control" id="letak-aset" placeholder="Letak Aset"
-                            name="letak_aset" value="<?php echo $row['letak_aset']; ?>">
+                        <label for="letak-aset" class="col-form-label">Dari Lokasi</label>
+                        <input type="text" class="form-control" id="letak-aset" placeholder="Dari Lokasi"
+                            name="dari_lokasi" value="<?php echo $row['letak_aset']; ?>">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="ke-lokasi" class="col-form-label">Ke Lokasi</label>
+                        <input type="text" class="form-control" id="ke-lokasi" placeholder="Ke Lokasi"
+                            name="ke_lokasi">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="tanggal-mutasi" class="col-form-label">Tanggal Mutasi</label>
+                        <input type="date" class="form-control" id="tanggal-mutasi" placeholder="Tanggal Mutasi"
+                            name="tanggal_mutasi">
                     </div>
                 </div>
                 <div class="form-row">

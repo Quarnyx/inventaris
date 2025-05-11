@@ -35,11 +35,11 @@
                 <li>
                     <a href="javascript: void(0);">
                         <i class="fe-briefcase"></i>
-                        <span> Aset </span>
+                        <span>Transaksi Aset </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
-                        <li><a href="?page=aset">Daftar Aset</a></li>
+                        <li><a href="?page=aset">Pengadaan Aset</a></li>
                         <?php
                         if ($_SESSION['level'] == 'admin') {
                             ?>
@@ -49,7 +49,9 @@
                         ?>
                         <li><a href="?page=kelompok-aset">Kelompok Aset</a></li>
                         <li><a href="?page=jenis-aset">Jenis Aset</a></li>
-                        <li><a href="?page=letak-aset">Letak Aset</a></li>
+                        <li><a href="?page=letak-aset">Mutasi Aset</a></li>
+                        <li><a href="?page=penghapusan-aset">Penghapusan Aset</a></li>
+                        <li><a href="?page=pemeliharaan-aset">Pemeliharaan Aset</a></li>
                     </ul>
                 </li>
 

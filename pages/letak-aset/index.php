@@ -10,14 +10,16 @@
                         <li class="breadcrumb-item active">Data Letak Aset</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Data Letak Aset</h4>
+                <h4 class="page-title">Data Letak Aset Terkini</h4>
             </div>
-            <button class="btn btn-primary mb-3" id="tambah"><i class="fe-plus"></i> Tambah Letak Aset</button>
-
         </div>
     </div>
     <!-- end page title -->
     <div id="tabel">
+
+    </div>
+
+    <div id="riwayat-mutasi">
 
     </div>
 
@@ -32,13 +34,13 @@
     function loadTable() {
         $('#tabel').load('pages/letak-aset/tabel-letak-aset.php');
     }
+
+    function loadRiwayatMutasi() {
+        $('#riwayat-mutasi').load('pages/letak-aset/tabel-riwayat-mutasi.php');
+    }
+
     $(document).ready(function () {
         loadTable();
-        $('#tambah').click(function () {
-            // open modal
-            $('#myModal').modal('show');
-            $('#myModal').find('.modal-title').text('Tambah Letak Aset');
-            $('#myModal').find('.modal-body').load('pages/letak-aset/tambah-letak-aset.php');
-        })
-    })
+        loadRiwayatMutasi();
+    });
 </script>
