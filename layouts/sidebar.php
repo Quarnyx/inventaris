@@ -52,6 +52,7 @@
                         <li><a href="?page=letak-aset">Mutasi Aset</a></li>
                         <li><a href="?page=penghapusan-aset">Penghapusan Aset</a></li>
                         <li><a href="?page=pemeliharaan-aset">Pemeliharaan Aset</a></li>
+                        <li><a href="?page=pemindahtanganan-aset">Pemindahtanganan Aset</a></li>
                     </ul>
                 </li>
 
