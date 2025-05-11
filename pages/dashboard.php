@@ -15,7 +15,32 @@
         </div>
     </div>
     <!-- end page title -->
+    <?php
+    include 'config.php';
+    if ($_SESSION['level'] == 'admin') {
+        $sql = $conn->query("SELECT * FROM aset WHERE status = 'Ditolak'");
+        $jmlAsetDitolak = $sql->num_rows;
+        if ($jmlAsetDitolak > 0) { ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-danger">
+                        <?php
 
+                        while ($row = $sql->fetch_assoc()) {
+                            ?>
+                            <h4>Aset <?php echo $row['nama_aset']; ?> Ditolak </h4>
+                            <p>Keterangan : <?php echo $row['keterangan_tolak']; ?></p>
+                            <hr>
+                            <?php
+                        }
+                        ?>
+                        <a href="?page=aset" class="btn btn-primary">Cek Kembali</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+        }
+    } ?>
     <div class="row">
         <div class="col-md-6 col-xl-3">
             <div class="card-box tilebox-one">

@@ -53,6 +53,16 @@ switch ($_GET['aksi']) {
             echo $conn->error;
         }
         break;
+    case 'tolak-validasi':
+        $id = $_POST['id'];
+        $keterangan_tolak = $_POST['keterangan_tolak'];
+        $sql = $conn->query("UPDATE aset SET status = 'Ditolak', keterangan_tolak = '$keterangan_tolak' WHERE id_aset = '$id'");
+        if ($sql) {
+            echo "ok";
+        } else {
+            echo "gagal";
+        }
+        break;
     default:
         $aksi = 'tambah';
         break;

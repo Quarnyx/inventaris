@@ -117,7 +117,18 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-info">Update</button>
+                <button type="submit" class="btn btn-info">Validasi</button>
+            </form>
+            <form id="form-tolak">
+                <input type="hidden" name="id" value="<?php echo $row['id_aset']; ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="keterangan_tolak" class="col-form-label">Keterangan Tolak</label>
+                        <textarea type="text" class="form-control" id="keterangan_tolak" placeholder="Keterangan Tolak"
+                            name="keterangan_tolak" rows="5"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger mt-2">Tolak</button>
             </form>
         </div>
     </div>
@@ -125,6 +136,28 @@ if ($result->num_rows > 0) {
 <script>
     $(document).ready(function () {
         $(":file").filestyle();
+        $('#form-tolak').submit(function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: 'pages/validasi/proses-validasi.php?aksi=tolak-validasi',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response == "ok") {
+                        loadTable();
+                        $('#myModal').modal('hide');
+                        alertify.success('Aset Berhasil Di Tolak');
+                    } else {
+                        alertify.error('Aset Gagal Di Tolak');
+                    }
+                }
+            });
+        });
+
         $('#form-tambah').submit(function (e) {
             e.preventDefault();
             var formData = new FormData(this);

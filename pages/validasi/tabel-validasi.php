@@ -79,7 +79,7 @@
 
             <?php }
             if ($_GET['act'] == 'belum') {
-                $sql = $conn->query("SELECT * FROM aset WHERE status like '%Belum Validasi%'");
+                $sql = $conn->query("SELECT * FROM aset WHERE status like '%Belum Validasi%' OR status like '%Perbaikan%'");
 
 
                 ?>

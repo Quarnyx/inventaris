@@ -41,7 +41,7 @@
                     <ul class="nav-second-level" aria-expanded="false">
                         <li><a href="?page=aset">Pengadaan Aset</a></li>
                         <?php
-                        if ($_SESSION['level'] == 'admin') {
+                        if ($_SESSION['level'] == 'Kasubag TU') {
                             ?>
                             <li><a href="?page=validasi&act=belum">Validasi Aset</a></li>
                             <?php

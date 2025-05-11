@@ -129,7 +129,7 @@ if ($result->num_rows > 0) {
                             }
                             ?>
                         </select>
-                    </div>                    
+                    </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
@@ -140,6 +140,17 @@ if ($result->num_rows > 0) {
                 </div>
 
                 <button type="submit" class="btn btn-info">Update</button>
+            </form>
+            <form id="form-tolak">
+                <input type="hidden" name="id" value="<?php echo $row['id_aset']; ?>">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="keterangan_tolak" class="col-form-label">Keterangan Tolak</label>
+                        <textarea type="text" class="form-control" id="keterangan_tolak" placeholder="Keterangan Tolak"
+                            name="keterangan_tolak" rows="5" readonly><?php echo $row['keterangan_tolak']; ?></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger mt-2">Ajukan Perbaikan</button>
             </form>
         </div>
     </div>
@@ -183,6 +194,27 @@ if ($result->num_rows > 0) {
                     } else {
                         alertify.error('Aset Gagal Diedit');
 
+                    }
+                }
+            });
+        });
+        $('#form-tolak').submit(function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                url: 'pages/aset/proses-aset.php?aksi=ajukan-perbaikan',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response == "ok") {
+                        loadTable();
+                        $('#myModal').modal('hide');
+                        alertify.success('Aset Berhasil Ajukan Perbaikan');
+                    } else {
+                        alertify.error('Aset Gagal Ajukan Perbaikan');
                     }
                 }
             });
