@@ -11,7 +11,7 @@
  Target Server Version : 80030 (8.0.30)
  File Encoding         : 65001
 
- Date: 12/05/2025 00:26:51
+ Date: 13/05/2025 23:34:56
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `aset`  (
   `merek` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `status_kondisi` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `sumber_dana` enum('APBN','APBD','Hibah','Lainnya') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `klasifikasi_pengadaan` enum('Hibah','Pembangunan Sendiri','Pembelian','Kontrak') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `klasifikasi_pengadaan` enum('Hibah','Pembangunan Sendiri','Pembelian','Kontrak','Tidak Ada') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `keterangan_tolak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id_aset`) USING BTREE,
   INDEX `id_jenis`(`id_jenis` ASC) USING BTREE,
@@ -53,9 +53,9 @@ CREATE TABLE `aset`  (
 -- Records of aset
 -- ----------------------------
 INSERT INTO `aset` VALUES (7, 'Mobil Avanza', '2024-12-12', 8, 160000000.00, 50000000.00, 'Sudah Validasi Pemindahtanganan Aset', 4, 1, 'adasdasdsdasdsdada', 1, 'Unit', 1145833.00, 'Lapas', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `aset` VALUES (9, 'Mobil Hiace', '2024-10-01', 8, 90000000.00, 4000000.00, 'tidak aktif', 4, 1, 'kajsdkajsdkja', 1, 'Unit', 895833.00, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `aset` VALUES (9, 'Mobil Hiace', '2024-10-01', 8, 90000000.00, 4000000.00, 'Sudah Validasi Pemindahtanganan Aset', 4, 1, 'kajsdkajsdkja', 1, 'Unit', 895833.00, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `aset` VALUES (12, 'adsadada', '2025-01-16', 8, 5000000.00, 1000000.00, 'Sudah Validasi Tambah Aset', 4, 1, 'adsdadadadada', 1, 'Unit', 41666.00, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `aset` VALUES (13, 'Laptop Asus', '2025-03-01', 4, 4000000.00, 100000.00, 'Sudah Validasi Tambah Aset', 4, 3, 'asdadasdasdsada', 1, 'Unit', 81250.00, 'Kantor', NULL, NULL, NULL, NULL, NULL, 'kurang B');
+INSERT INTO `aset` VALUES (13, 'Laptop Asus', '2025-03-01', 4, 4000000.00, 100000.00, 'Pemindahtanganan', 4, 3, 'asdadasdasdsada', 1, 'Unit', 81250.00, 'Kantor', NULL, NULL, NULL, NULL, NULL, 'kurang B');
 INSERT INTO `aset` VALUES (15, 'Mobil Avanza', '2025-05-09', 8, 16000000.00, 1000000.00, 'Ditolak', 1, 3, 'ffgfff', 5, 'Unit', 156250.00, NULL, 'AS-001', 'HOn', 'Baik', 'APBD', NULL, 'asdasdads');
 INSERT INTO `aset` VALUES (16, 'Mobil Hiace AAAAA', '2025-05-23', 22, 232323232.00, 2999999.00, 'Sudah Validasi Tambah Aset', 4, 3, 'asdsadsadas', 22, '1', 868648.00, NULL, 'AS-002', 'hahdad', 'Baik A', 'APBD', 'Hibah', NULL);
 
@@ -194,12 +194,12 @@ CREATE TABLE `pemindahtanganan_aset`  (
   PRIMARY KEY (`id_pemindahtanganan`) USING BTREE,
   INDEX `id_aset`(`id_aset` ASC) USING BTREE,
   CONSTRAINT `pemindahtanganan_aset_ibfk_1` FOREIGN KEY (`id_aset`) REFERENCES `aset` (`id_aset`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pemindahtanganan_aset
 -- ----------------------------
-INSERT INTO `pemindahtanganan_aset` VALUES (1, 9, '2025-05-11', 'Jual', 'sfsdfs', 'aafaf', 'afsasa');
+INSERT INTO `pemindahtanganan_aset` VALUES (3, 13, '2025-05-12', 'Hibah', 'ADDADA', '1746984494_Pesanan Ayam - Google Spreadsheet.pdf', 'sddasda');
 
 -- ----------------------------
 -- Table structure for pengguna
