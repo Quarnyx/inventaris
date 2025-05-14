@@ -99,7 +99,7 @@ FROM
                                 <?php echo $data['letak_aset']; ?>
                             </td>
                             <td>
-                                <?php echo $data['deskripsi']; ?>
+                                <?php echo $data['deskripsi_aset']; ?>
                             </td>
                             <td>
                                 <?php echo 'Rp. ' . number_format($data['nilai_penyusutan'], 0, ',', '.'); ?>
